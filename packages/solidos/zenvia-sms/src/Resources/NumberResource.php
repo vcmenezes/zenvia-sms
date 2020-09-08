@@ -1,10 +1,10 @@
 <?php
 
-namespace Menezes\ZenviaSms\Resources;
+namespace Solidos\ZenviaSms\Resources;
 
 use Carbon\Carbon;
 use Exception;
-use Menezes\ZenviaSms\Exceptions\FieldMissingException;
+use Solidos\ZenviaSms\Exceptions\FieldMissingException;
 
 class NumberResource
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Menezes\ZenviaSms\Exceptions;
+namespace Solidos\ZenviaSms\Exceptions;
 
 use Exception;
 use Throwable;

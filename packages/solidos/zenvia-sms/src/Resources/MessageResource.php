@@ -1,10 +1,10 @@
 <?php
 
-namespace Menezes\ZenviaSms\Resources;
+namespace Solidos\ZenviaSms\Resources;
 
 use Exception;
-use Menezes\ZenviaSms\Collections\NumberCollection;
-use Menezes\ZenviaSms\Exceptions\FieldMissingException;
+use Solidos\ZenviaSms\Collections\NumberCollection;
+use Solidos\ZenviaSms\Exceptions\FieldMissingException;
 
 class MessageResource
 {

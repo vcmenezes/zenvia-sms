@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: DevMaker BackEnd
- * Date: 01/06/2018
- * Time: 12:23
- */
 
-namespace Menezes\ZenviaSms\Facades;
+namespace Solidos\ZenviaSms\Facades;
 
 use Illuminate\Support\Facades\Facade as BaseFacade;
 

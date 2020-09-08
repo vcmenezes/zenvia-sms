@@ -1,21 +1,21 @@
 <?php
 
-namespace Menezes\ZenviaSms\Services;
+namespace Solidos\ZenviaSms\Services;
 
 use Exception;
-use Illuminate\Support\Facades\Log;
-use Menezes\ZenviaSms\Collections\MessageCollection;
-use Menezes\ZenviaSms\Collections\NumberCollection;
-use Menezes\ZenviaSms\Exceptions\AuthenticationNotFoundedException;
-use Menezes\ZenviaSms\Exceptions\FieldMissingException;
-use Menezes\ZenviaSms\Requests\EnviarSmsRequest;
-use Menezes\ZenviaSms\Resources\AuthenticationResource;
-use Menezes\ZenviaSms\Resources\FromResource;
 use Illuminate\Support\Collection;
-use Menezes\ZenviaSms\Resources\MessageResource;
-use Menezes\ZenviaSms\Resources\NumberResource;
-use Menezes\ZenviaSms\Resources\TextResource;
-use Menezes\ZenviaSms\Responses\ZenviaResponse;
+use Illuminate\Support\Facades\Log;
+use Solidos\ZenviaSms\Collections\MessageCollection;
+use Solidos\ZenviaSms\Collections\NumberCollection;
+use Solidos\ZenviaSms\Exceptions\AuthenticationNotFoundedException;
+use Solidos\ZenviaSms\Exceptions\FieldMissingException;
+use Solidos\ZenviaSms\Requests\EnviarSmsRequest;
+use Solidos\ZenviaSms\Resources\AuthenticationResource;
+use Solidos\ZenviaSms\Resources\FromResource;
+use Solidos\ZenviaSms\Resources\MessageResource;
+use Solidos\ZenviaSms\Resources\NumberResource;
+use Solidos\ZenviaSms\Resources\TextResource;
+use Solidos\ZenviaSms\Responses\ZenviaResponse;
 use Throwable;
 
 class ZenviaService
@@ -120,7 +120,7 @@ class ZenviaService
                 if ($response instanceof Collection) {
                     $response = $response->toArray();
                 }
-                $responses = [...$responses, $response];
+                $responses = [...$responses, ...$response];
             }
             Log::info('Mensagens enviadas com sucesso');
         } catch (Throwable $exception) {
@@ -128,17 +128,18 @@ class ZenviaService
         }
 
         /** @var ZenviaResponse $response */
-        foreach($responses as $response){
-            if($response instanceof Collection){
-                foreach($response as $item){
-                    // TODO Erro: Call to a member function failed() on array
-                    if($response->failed()){
-                       Log::error('Error: '.$response->getDetailCode());
+        foreach ($responses as $response) {
+            if ($response instanceof Collection) {
+                foreach ($response as $item) {
+                    if ($response->failed()) {
+                        Log::error('Error: ' . $response->getDetailCode());
                     }
                 }
+                continue;
             }
-            else if($response->failed()){
-                Log::error('Error: '.$response->getDetailCode());
+
+            if ($response->failed()) {
+                Log::error('Error: ' . $response->getDetailCode());
             }
         }
     }

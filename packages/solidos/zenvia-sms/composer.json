@@ -1,5 +1,5 @@
 {
-  "name": "menezes/zenvia-sms",
+  "name": "solidos/zenvia-sms",
   "description": "Zenvia Package for sending SMS",
   "authors": [
     {
@@ -15,16 +15,16 @@
   },
   "autoload": {
     "psr-4": {
-      "Menezes\\ZenviaSms\\": "src/"
+      "Solidos\\ZenviaSms\\": "src/"
     }
   },
   "extra": {
     "laravel": {
       "aliases": {
-        "Zenvia": "Menezes\\ZenviaSms\\Facades\\ZenviaFactory"
+        "Zenvia": "Solidos\\ZenviaSms\\Facades\\ZenviaFactory"
       },
       "providers": [
-        "Menezes\\ZenviaSms\\Providers\\ZenviaSmsServiceProvider"
+        "Solidos\\ZenviaSms\\Providers\\ZenviaSmsServiceProvider"
       ]
     }
   }

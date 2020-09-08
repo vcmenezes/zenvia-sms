@@ -1,9 +1,9 @@
 <?php
 
-namespace Menezes\ZenviaSms\Collections;
+namespace Solidos\ZenviaSms\Collections;
 
 use Illuminate\Support\Collection;
-use Menezes\ZenviaSms\Resources\MessageResource;
+use Solidos\ZenviaSms\Resources\MessageResource;
 
 class MessageCollection
 {
