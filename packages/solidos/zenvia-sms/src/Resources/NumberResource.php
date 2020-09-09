@@ -69,6 +69,11 @@ class NumberResource
         return $this->schedule->toDateString() . 'T' . $this->schedule->toTimeString();
     }
 
+    public function isSameNumber(string $number): bool
+    {
+        return $this->number === $number;
+    }
+
     /**
      * @param FromResource $from
      * @param TextResource|null $text

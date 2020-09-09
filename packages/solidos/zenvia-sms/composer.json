@@ -21,7 +21,7 @@
   "extra": {
     "laravel": {
       "aliases": {
-        "Zenvia": "Solidos\\ZenviaSms\\Facades\\ZenviaFactory"
+        "Zenvia": "Solidos\\ZenviaSms\\Facades\\Zenvia"
       },
       "providers": [
         "Solidos\\ZenviaSms\\Providers\\ZenviaSmsServiceProvider"

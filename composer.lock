@@ -5884,7 +5884,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/solidos/zenvia-sms",
-                "reference": "9b0ac6b30d00b81add39a5a827dd696ed2ab86ad"
+                "reference": "6a173494645b665590905e4d724219851ca74398"
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.3",
@@ -5895,7 +5895,7 @@
             "extra": {
                 "laravel": {
                     "aliases": {
-                        "Zenvia": "Solidos\\ZenviaSms\\Facades\\ZenviaFactory"
+                        "Zenvia": "Solidos\\ZenviaSms\\Facades\\ZenviaFacade"
                     },
                     "providers": [
                         "Solidos\\ZenviaSms\\Providers\\ZenviaSmsServiceProvider"

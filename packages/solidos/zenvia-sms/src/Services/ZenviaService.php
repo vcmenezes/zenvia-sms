@@ -2,7 +2,6 @@
 
 namespace Solidos\ZenviaSms\Services;
 
-use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 use Solidos\ZenviaSms\Collections\MessageCollection;
@@ -22,13 +21,11 @@ class ZenviaService
 {
     private AuthenticationResource $authentication;
 
-    private FromResource $from;
+    private ?FromResource $from;
 
     private ?NumberCollection $numbers;
 
     private TextResource $text;
-
-    private MessageCollection $messages;
 
     /**
      * ZenviaService constructor.
@@ -44,9 +41,9 @@ class ZenviaService
     }
 
     /**
-     * @param $numbers
+     * @param string|string[]|NumberResource|NumberResource[] $numbers
      * @return $this
-     * @throws FieldMissingException
+     * @throws FieldMissingException|Throwable
      */
     public function setNumber($numbers): ZenviaService
     {
@@ -63,7 +60,7 @@ class ZenviaService
                 $this->numbers->addNumber($number instanceof NumberResource ? $number : new NumberResource($number));
             } catch (FieldMissingException $exception) {
                 throw $exception;
-            } catch (Exception $exception) {
+            } catch (Throwable $exception) {
                 throw $exception;
             }
         }
@@ -96,14 +93,14 @@ class ZenviaService
             throw new FieldMissingException('Número');
         }
 
-        $this->messages = new MessageCollection();
+        $messages = new MessageCollection();
 
         foreach ($this->numbers->get()->chunk(100) as $numbersChunked) {
 
-            $this->messages->add(new MessageResource($this->from, new NumberCollection($numbersChunked), $this->text));
+            $messages->add(new MessageResource($this->from, new NumberCollection($numbersChunked), $this->text));
         }
 
-        return $this->messages;
+        return $messages;
     }
 
     /**
@@ -142,5 +139,39 @@ class ZenviaService
                 Log::error('Error: ' . $response->getDetailCode());
             }
         }
+    }
+
+    /**
+     * @param string|string[]|NumberResource|NumberResource[] $numbers
+     * @param $text
+     * @throws AuthenticationNotFoundedException
+     * @throws FieldMissingException
+     * @throws Throwable
+     */
+    public function sendMessage($numbers, string $text): void
+    {
+        $this->setNumber($numbers)->setText($text)->send();
+    }
+
+    public function withoutFrom(): ZenviaService
+    {
+        $this->from = null;
+        return $this;
+    }
+
+    /**
+     * @param $from
+     * @return $this
+     * @throws FieldMissingException
+     */
+    public function setFrom($from): ZenviaService
+    {
+        if (!$from instanceof FromResource) {
+            $from = new FromResource($from);
+        }
+
+        $this->from = $from;
+
+        return $this;
     }
 }
