@@ -8,7 +8,7 @@
   ],
   "license": "MIT",
   "require": {
-    "php": "^7.2.5",
+    "php": "^7.4",
     "fideloper/proxy": "^4.2",
     "fruitcake/laravel-cors": "^2.0",
     "guzzlehttp/guzzle": "^6.3",
@@ -21,7 +21,7 @@
     "mockery/mockery": "^1.3.1",
     "nunomaduro/collision": "^4.1",
     "phpunit/phpunit": "^8.5",
-    "menezes/zenvia-sms": "*"
+    "solidos/zenvia-sms": "*"
   },
   "config": {
     "optimize-autoloader": true,
@@ -36,7 +36,7 @@
   "autoload": {
     "psr-4": {
       "App\\": "app/",
-      "Menezes\\ZenviaSms\\": "packages/menezes/zenvia-sms/src"
+      "Solidos\\ZenviaSms\\": "packages/solidos/zenvia-sms/src"
     },
     "classmap": [
       "database/seeds",
@@ -65,7 +65,7 @@
   "repositories": [
     {
       "type": "path",
-      "url": "packages/menezes/zenvia-sms"
+      "url": "packages/solidos/zenvia-sms"
     }
   ]
 }

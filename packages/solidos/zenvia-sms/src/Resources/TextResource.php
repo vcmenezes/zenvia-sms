@@ -1,8 +1,8 @@
 <?php
 
-namespace Menezes\ZenviaSms\Resources;
+namespace Solidos\ZenviaSms\Resources;
 
-use Menezes\ZenviaSms\Exceptions\FieldMissingException;
+use Solidos\ZenviaSms\Exceptions\FieldMissingException;
 
 class TextResource
 {

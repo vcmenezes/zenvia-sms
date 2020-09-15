@@ -1,11 +1,9 @@
 <?php
 
-namespace Menezes\ZenviaSms\Commands;
+namespace Solidos\ZenviaSms\Commands;
 
 use Illuminate\Console\Command;
-use Menezes\ZenviaSms\Exceptions\AuthenticationNotFoundedException;
-use Menezes\ZenviaSms\Exceptions\FieldMissingException;
-use Menezes\ZenviaSms\Services\ZenviaService;
+use Solidos\ZenviaSms\Services\ZenviaService;
 use Throwable;
 
 class SendSmsTest extends Command
@@ -15,8 +13,6 @@ class SendSmsTest extends Command
     protected $description = 'Envia um sms de teste para o numero passado';
 
     /**
-     * @throws AuthenticationNotFoundedException
-     * @throws FieldMissingException
      * @throws Throwable
      */
     public function handle(): void
@@ -34,17 +30,18 @@ class SendSmsTest extends Command
         } catch (Throwable $exception) {
             $this->error('Erro: ' . $exception->getMessage());
             $this->error('Code: ' . $exception->getCode());
+            throw $exception;
         }
 
 //        try {
 //            $zenvia = new ZenviaService(config('zenvia.account'), config('zenvia.password'));
 //
-//            $zenvia->setNumber('5541999999999')
-//                ->setNumber(['5541999999999', '5541999999999'])
-//                ->setNumber(collect(['5541999999999', '5541999999999']))
-//                ->setText('Mensagem Teste')
+//            $zenvia->setNumber(['5548998425179', '5565993429018'])
+//                ->setText('Mensagem Teste - Zenvia - Sólidos')
 //                ->send();
 //        } catch (Throwable $exception) {
+//            $this->error('Erro: ' . $exception->getMessage());
+//            $this->error('Code: ' . $exception->getCode());
 //            throw $exception;
 //        }
     }

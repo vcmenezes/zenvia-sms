@@ -1,11 +1,11 @@
 <?php
 
-namespace Menezes\ZenviaSms\Requests;
+namespace Solidos\ZenviaSms\Requests;
 
 use Illuminate\Support\Collection;
-use Menezes\ZenviaSms\Exceptions\FieldMissingException;
-use Menezes\ZenviaSms\Exceptions\RequestException;
-use Menezes\ZenviaSms\Resources\MessageResource;
+use Solidos\ZenviaSms\Exceptions\FieldMissingException;
+use Solidos\ZenviaSms\Exceptions\RequestException;
+use Solidos\ZenviaSms\Resources\MessageResource;
 
 class EnviarSmsRequest extends BaseRequest
 {

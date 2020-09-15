@@ -1,10 +1,10 @@
 <?php
 
-namespace Menezes\ZenviaSms\Resources;
+namespace Solidos\ZenviaSms\Resources;
 
 use Carbon\Carbon;
 use Exception;
-use Menezes\ZenviaSms\Exceptions\FieldMissingException;
+use Solidos\ZenviaSms\Exceptions\FieldMissingException;
 
 class NumberResource
 {
@@ -67,6 +67,11 @@ class NumberResource
             return '';
         }
         return $this->schedule->toDateString() . 'T' . $this->schedule->toTimeString();
+    }
+
+    public function isSameNumber(string $number): bool
+    {
+        return $this->number === $number;
     }
 
     /**

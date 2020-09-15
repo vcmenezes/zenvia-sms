@@ -1,10 +1,10 @@
 <?php
 
-namespace Menezes\ZenviaSms\Providers;
+namespace Solidos\ZenviaSms\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Menezes\ZenviaSms\Commands\SendSmsTest;
-use Menezes\ZenviaSms\Services\ZenviaService;
+use Solidos\ZenviaSms\Commands\SendSmsTest;
+use Solidos\ZenviaSms\Services\ZenviaService;
 
 class ZenviaSmsServiceProvider extends ServiceProvider
 {
@@ -15,7 +15,7 @@ class ZenviaSmsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('zenvia', static function($app){
+        $this->app->bind('zenvia', static function(){
             $account = config('zenvia.account', env('ZENVIA_ACCOUNT'));
             $password = config('zenvia.password', env('ZENVIA_PASSWORD'));
             return new ZenviaService($account, $password);

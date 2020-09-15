@@ -1,12 +1,12 @@
 <?php
 
-namespace Menezes\ZenviaSms\Requests;
+namespace Solidos\ZenviaSms\Requests;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Collection;
-use Menezes\ZenviaSms\Exceptions\AuthenticationNotFoundedException;
-use Menezes\ZenviaSms\Exceptions\RequestException;
-use Menezes\ZenviaSms\Responses\ZenviaResponse;
+use Solidos\ZenviaSms\Exceptions\AuthenticationNotFoundedException;
+use Solidos\ZenviaSms\Exceptions\RequestException;
+use Solidos\ZenviaSms\Responses\ZenviaResponse;
 use Throwable;
 
 class BaseRequest

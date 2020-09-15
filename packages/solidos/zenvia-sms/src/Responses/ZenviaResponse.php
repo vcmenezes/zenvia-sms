@@ -1,6 +1,6 @@
 <?php
 
-namespace Menezes\ZenviaSms\Responses;
+namespace Solidos\ZenviaSms\Responses;
 
 use Illuminate\Support\Facades\Log;
 
